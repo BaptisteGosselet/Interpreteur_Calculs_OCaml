@@ -3,13 +3,23 @@
 [![OCaml](
 https://img.shields.io/badge/OCaml-EC6813?style=for-the-badge&logo=ocaml&logoColor=white)](#)
 
-Ce projet est une calculatrice interactive écrite en OCaml. Elle permet d'interpréter des expressions mathématiques (tokenization + parsing), puis de les évaluer.
+Ce projet est une calculatrice interactive écrite en OCaml. Elle permet d'interpréter des expressions mathématiques (tokenisation et parsing), puis de les évaluer.
 
-La saisie utilisateur est convertie en liste de tokens par le lexeur, les tokens sont convertis dans un langage formel et un arbre syntaxique, et l'arbre est évalué pour afficher le résultat.
+La saisie utilisateur est convertie en liste de tokens par le lexeur, les tokens sont transformés dans un arbre syntaxique d'une grammaire formelle, et l'arbre est évalué pour afficher le résultat.
 
 Projet d'apprentissage et d'expérimentation avec OCaml.
 
 <img src="illustration.png" width=500>
+
+## Grammaire
+
+```
+expr = expr * (ADD | SUB) * term | term
+term = term * (MUL | DIV) * factor | factor
+factor = unary
+unary = (NEG) * unary | primary
+primary = float | expr
+```
 
 ## Features 
 
